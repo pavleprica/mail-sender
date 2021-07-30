@@ -2,6 +2,7 @@ package io.github.pavleprica.mail.sender.model
 
 import io.github.pavleprica.mail.sender.TestNameGenerator
 import io.github.pavleprica.mail.sender.exceptions.InvalidEmail
+import io.github.pavleprica.mail.sender.exceptions.InvalidPassword
 import org.junit.jupiter.api.DisplayNameGeneration
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -108,11 +109,13 @@ class GmailEmailCredentialsTests {
 
             @Test
             fun shouldThrowInvalidPasswordWhenPasswordBlank() {
-                EmailCredentials(
-                    emailProvider,
-                    testEmail,
-                    charArrayOf()
-                )
+                assertThrows<InvalidPassword> {
+                    EmailCredentials(
+                        emailProvider,
+                        testEmail,
+                        charArrayOf()
+                    )
+                }
             }
 
         }
