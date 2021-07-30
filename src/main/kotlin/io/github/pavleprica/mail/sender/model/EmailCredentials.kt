@@ -1,9 +1,16 @@
 package io.github.pavleprica.mail.sender.model
 
+import io.github.pavleprica.mail.sender.exceptions.InvalidEmail
+
 /**
  * Used as credentials to auth to the email provider.
  */
 data class EmailCredentials(
+    /**
+     * An enum representing the email provider. It will be used for verifying the email.
+     */
+    val emailProvider: EmailProvider,
+
     /**
      * Email of the account that is used to send an email.
      */

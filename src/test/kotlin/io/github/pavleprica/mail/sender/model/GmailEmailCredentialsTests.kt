@@ -12,6 +12,10 @@ import kotlin.test.assertNull
 @DisplayNameGeneration(TestNameGenerator::class)
 class GmailEmailCredentialsTests {
 
+    companion object {
+        private val emailProvider = EmailProvider.GMAIL
+    }
+
     @Nested
     inner class EmailValidityTests {
 
@@ -25,6 +29,7 @@ class GmailEmailCredentialsTests {
                 val email = "pavle.prica5@gmail.com"
 
                 EmailCredentials(
+                    emailProvider,
                     email,
                     testPassword
                 )
@@ -41,6 +46,7 @@ class GmailEmailCredentialsTests {
 
                 assertThrows<InvalidEmail> {
                     EmailCredentials(
+                        emailProvider,
                         email,
                         testPassword
                     )
@@ -53,6 +59,7 @@ class GmailEmailCredentialsTests {
 
                 assertThrows<InvalidEmail> {
                     EmailCredentials(
+                        emailProvider,
                         email,
                         testPassword
                     )
@@ -65,6 +72,7 @@ class GmailEmailCredentialsTests {
 
                 assertThrows<InvalidEmail> {
                     EmailCredentials(
+                        emailProvider,
                         email,
                         testPassword
                     )
@@ -87,6 +95,7 @@ class GmailEmailCredentialsTests {
             @Test
             fun shouldPass() {
                 EmailCredentials(
+                    emailProvider,
                     testEmail,
                     "c5hTkNh5amHotzbyL".toCharArray()
                 )
@@ -100,6 +109,7 @@ class GmailEmailCredentialsTests {
             @Test
             fun shouldThrowInvalidPasswordWhenPasswordBlank() {
                 EmailCredentials(
+                    emailProvider,
                     testEmail,
                     charArrayOf()
                 )
@@ -116,6 +126,7 @@ class GmailEmailCredentialsTests {
         fun shouldAccessPasswordAndClear() {
             val testingPassword = "OHUJQXA0Nk8LtajlNiN".toCharArray()
             val credentials = EmailCredentials(
+                emailProvider,
                 "caitlin_putneyo@gmail.com",
                 testingPassword
             )
