@@ -80,6 +80,19 @@ class GmailEmailCredentialsTests {
                 }
             }
 
+            @Test
+            fun shouldThrowInvalidEmailWhenNoAt() {
+                val email = "pavle.prica5gmail.com"
+
+                assertThrows<InvalidEmail> {
+                    EmailCredentials(
+                        emailProvider,
+                        email,
+                        testPassword
+                    )
+                }
+            }
+
         }
 
 
