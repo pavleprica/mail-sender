@@ -1,6 +1,7 @@
 package io.github.pavleprica.mail.sender.model
 
 import io.github.pavleprica.mail.sender.TestNameGenerator
+import io.github.pavleprica.mail.sender.exceptions.AttachmentFileNotFound
 import io.github.pavleprica.mail.sender.exceptions.ContentEmpty
 import io.github.pavleprica.mail.sender.exceptions.InvalidEmail
 import org.junit.jupiter.api.*
@@ -213,12 +214,14 @@ class MailRequestTests {
                 val testFile = File("some_file.txt")
                 if (testFile.exists()) testFile.delete()
 
-                MailRequest(
-                    "keshonda_messner6@gmail.com",
-                    "desktop",
-                    "Outer generations rat textile bronze.",
-                    listOf(testFile.absolutePath)
-                )
+                assertThrows<AttachmentFileNotFound> {
+                    MailRequest(
+                        "keshonda_messner6@gmail.com",
+                        "desktop",
+                        "Outer generations rat textile bronze.",
+                        listOf(testFile.absolutePath)
+                    )
+                }
             }
 
         }
