@@ -1,7 +1,7 @@
 package io.github.pavleprica.mail.sender.exceptions
 
+import io.github.pavleprica.mail.sender.model.EmailCredentials
 import io.github.pavleprica.mail.sender.model.MailRequest
- import io.github.pavleprica.mail.sender.model.EmailCredentials
 
 /**
  * Thrown by [MailRequest] or [EmailCredentials] when the is invalid.
