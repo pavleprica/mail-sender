@@ -40,3 +40,8 @@ mailSender.sendMail(
     MailRequest("pavle.prica5@gmail.com", "Title for new things", "Cool content", emptyList())
 )
 ```
+
+#### Notes
+Be aware that access to your account could be restricted. Please do check out the security configurations of yhe account.
+
+It is not recommended using your primary account for sending e-mails from the code.
