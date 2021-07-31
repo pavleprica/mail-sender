@@ -1,11 +1,6 @@
 name: Tests run
 
 on:
-
-  push:
-    branches:
-      - master
-
   pull_request:
     branches-ignore:
       - master
