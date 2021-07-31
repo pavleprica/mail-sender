@@ -8,5 +8,5 @@ import io.github.pavleprica.mail.sender.model.MailRequest
 class ContentEmpty(content: Content): Exception("$content is empty")
 
 enum class Content {
-    TITLE, TEXT
+    TITLE, PASSWORD
 }
